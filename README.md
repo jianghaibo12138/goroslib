@@ -24,7 +24,20 @@ Features:
 * Compile or cross-compile ROS nodes for all Golang supported OSs (Linux, Windows, Mac OS X) and architectures
 * Examples provided for every feature, comprehensive test suite, continuous integration
 
-The library provides its features by implementing in pure Go all the ROS protocols (xml-rpc, TCPROS, UDPROS) and APIs (Master API, Parameter Server API, Slave API).
+The library provides its features by implementing in pure Go all the ROS protocols (xml-rpc, TCPROS, UDPROS) and APIs (Master API, Parameter Server API, Slave API). Regarding the official [client requirements](https://wiki.ros.org/Implementing%20Client%20Libraries), the situation is shown in the table below.
+
+|requirement|satisfied|
+|-----------|---------|
+|implement the slave side of the master/slave API|:heavy_check_mark:|
+|handle node-to-node transport negotiation and connection setup|:heavy_check_mark:|
+|handle transport-specific serialization and deserialization of messages|:heavy_check_mark:|
+|parse command-line Remapping Arguments|:x:|
+|Subscribe to a simulated Clock|:x:|
+|publish debugging messages to rosout|:x:|
+|depend on the roslang package, which allows rosbuild and other tools to perform appropriate actions, such as msg- and srv-based code generation|impossible|
+|object representation of message types|:heavy_check_mark:|
+|event loop for connection servicing|:heavy_check_mark:|
+|user callback invocation on message receipt|:heavy_check_mark:|
 
 ## Installation
 
